@@ -92,22 +92,83 @@
     <hr>
     <p>Exercise:7</p>
     <?php
-    
+        echo "<p>a) Display days in the following way</p>";
+        $day = array('Monday','Tuesday','Wenesday','Thursday','Friday','Saturday','Sunday');
+        for ($i=0; $i < 7; $i++) { 
+            # code...
+            echo "<li>".$day[$i]."</li>";
+        }
+        echo "<br>b) Underline the curent day of week<br>";
+        function underline(){
+            $day = array('Monday','Tuesday','Wenesday','Thursday','Friday','Saturday','Sunday');
+            for ($i=0; $i < 7; $i++) { 
+                if($day[$i]==date("l")){
+                    echo "<u>".$day[3]."</u><br>";
+                }
+                else{
+                    echo $day[$i]."<br>";
+                }
+            }
+        }
+        underline();
     ?>
     <hr>
     <p>Exercise:8</p>
     <?php
-    
+        $countries = array( "Italy"=>"Rome", "Luxembourg"=>"Luxembourg", "Belgium"=>
+        "Brussels", "Denmark"=>"Copenhagen", "Finland"=>"Helsinki", "France" => "Paris",
+        "Slovakia"=>"Bratislava", "Slovenia"=>"Ljubljana", "Germany" => "Berlin", "Greece" =>
+        "Athens", "Ireland"=>"Dublin", "Netherlands"=>"Amsterdam", "Portugal"=>"Lisbon",
+        "Spain"=>"Madrid", "Sweden"=>"Stockholm", "United Kingdom"=>"London",
+        "Cyprus"=>"Nicosia", "Lithuania"=>"Vilnius", "Czech Republic"=>"Prague",
+        "Estonia"=>"Tallin", "Hungary"=>"Budapest", "Latvia"=>"Riga", "Malta"=>"Valetta",
+        "Austria" => "Vienna", "Poland"=>"Warsaw");
+
+        asort($countries); //sort the value
+        ksort($countries); // sort the main of value
+
+        foreach($countries as $value => $x_value) {
+            echo "<i>The capital of ".$value." is ".$x_value."</i><br>";
+        }
     ?>
     <hr>
-    <p>Exercise:9</p>
+    <p>Exercise 9: Create a program to print out the pyramid of star:</p>
     <?php
-    
+        for ($g=0; $g < 4; $g++) {
+            for ($i=4; $i > $g; $i--) { 
+                echo "&nbsp ";
+            }
+            for ($j=($g*2+1); $j > 0; $j--) {
+                echo "*";
+            }
+            echo"<br>";
+        }
     ?>
     <hr>
-    <p>Exercise:10</p>
+    <p>Exercise 10: We have the second degree equation: aX<sup>2</sup>+ bX + c = 0.</p>
+    <form action="" method="POST">
+        <input type="text" name="val-a" placeholder="a" style="width:20px;outline:none">
+        <label for="">X<sup>2</sup> + </label>
+        <input type="text" name="val-b" placeholder="b" style="width:20px;outline:none">
+        <label for=""> + X</label>
+        <input type="text" name="val-c" placeholder="c" style="width:20px;outline:none">
+        <label for=""> = 0</label>
+        <button type="submit">Calculate</button>
+    </form>
     <?php
-    
+        $a = $_POST['val-a'];
+        $b = $_POST['val-b'];
+        $c = $_POST['val-c'];
+        if($a==0){
+            $x = (-1)*($c/$b);
+            echo "<br>Answer<br><label>X</label> = ".$x;
+        }
+        else{
+            $x1 = (-$b+sqrt($b*$b-4*$a*$a))/2*$a;
+            $x2 = (-$b-sqrt($b*$b-4*$a*$a))/2*$a;
+            echo "<br>Answer<br><label>X1</label> = ".$x1."<br>";
+            echo "<label>X2</label> = ".$x2;
+        }
     ?>
     <hr>
 </body>
